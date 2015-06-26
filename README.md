@@ -8,15 +8,22 @@ Ruby SDK Integration To Deckard Services
 deckard-ruby-sdk is packaged as a RubyGem so that you can easily install by entering following at your command line:
 
 ```
-gem install deckard-ruby-sdk
+gem install procurecarros-client-sdk
 ```
 
 Or in your gem file
 
 ```
-gem 'deckard-ruby-sdk'
+gem 'procurecarros-client-sdk'
 ```
 
 Use the component in your project sources by:
 
-require ''
+require 'client'
+
+
+
+Enviroment Variables Needed to Run
+
+
+

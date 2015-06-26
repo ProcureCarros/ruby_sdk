@@ -1,17 +1,23 @@
-module ServiceLayer
+module Procurecarros
+  module ServiceLayer
+
+    class ApiDetalheService
+
+      # @@endpoint = ServiceLayer::ApiService::DETALHE_ENDPOINT
+
+      def initialize client_id, client_token
+        @client = Procurecarros::ServiceLayer::Client.discover("v1","lista", client_id, client_token)
+      end
+
+      def getDetalheAnuncio(url)
+        method = @client.api.detalhe.get_detalhe
+        params = {
+
+        }
+        return @client.query(method, params)
+      end
 
 
-  class ApiDetalheService < ApiService
-
-    @@endpoint = ServiceLayer::ApiService::DETALHE_ENDPOINT
-
-
-    def getDetalheAnuncio(url)
-      method = "get"
-      params = {}
-      return query(@@endpoint, method, :get, params)
     end
-
-
   end
 end

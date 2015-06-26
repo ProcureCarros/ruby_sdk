@@ -1,59 +1,64 @@
-module ServiceLayer
+module Procurecarros
+  module ServiceLayer
 
-  ##
-  # Query Service Layer for data
-  #
-  #
-  class ApiCapaService < ApiService
+    ##
+    # Query Service Layer for data
+    #
+    #
+    class ApiCapaService
 
-    @@endpoint = ServiceLayer::ApiService::CAPA_ENDPOINT
+      def initialize client_id, client_token
+        @client = Procurecarros::ServiceLayer::Client.discover("v1","capa", client_id, client_token)
+      end
 
-    def getSuperDestaque()
+      def getSuperDestaque()
 
-      method = "destaque/super"
-      params = {
-          "page" => 1,
-          "registros" => 3
-      }
-      return query(@@endpoint, method, :get, params)
+        method = @client.api.capa.destaque.super #"destaque/super"
+        params = {
+            "page" => 1,
+            "registros" => 3
+        }
+        return @client.query(method, params)
+      end
+
+      def getDestaques()
+        method = @client.api.destaque.normal
+        params = {
+            "page" => 1,
+            "registros" => 3
+        }
+        return @client.query(method, params)
+      end
+
+      def getOutrasOfertas()
+        method = @client.api.capa.destaque.outras
+        params = {
+            "page" => 1,
+            "registros" => 8
+        }
+        return @client.query(method, params)
+      end
+
+      def getMaisCompartilhados()
+        method = @client.api.capa.destaque.mais_compartilhadas
+        params = {
+            "page" => 1,
+            "registros" => 4
+        }
+        return @client.query(method, params)
+      end
+
+      def getMaisBuscados()
+        method = @client.api.capa.destaque.mais_buscados
+        params = {
+            "page" => 1,
+            "registros" => 36
+        }
+        return @client.query(method, params)
+      end
+
+
     end
-
-    def getDestaques()
-      method = "destaque/capa"
-      params = {
-          "page" => 1,
-          "registros" => 3
-      }
-      return query(@@endpoint, method, :get, params)
-    end
-
-    def getOutrasOfertas()
-      method = "destaque/outras"
-      params = {
-          "page" => 1,
-          "registros" => 8
-      }
-      return query(@@endpoint, method, :get, params)
-    end
-
-    def getMaisCompartilhados()
-      method = "destaque/compartilhados"
-      params = {
-          "page" => 1,
-          "registros" => 4
-      }
-      return query(@@endpoint, method, :get, params)
-    end
-
-    def getMaisBuscados()
-      method = "busca/mais"
-      params = {
-          "page" => 1,
-          "registros" => 36
-      }
-      return query(@@endpoint, method, :get, params)
-    end
-
-
   end
+
 end

@@ -1,35 +1,29 @@
-module ServiceLayer
+module Procurecarros
+  module ServiceLayer
 
-  ##
-  # Query Service Layer for data
-  # Lista service
-  #
-  #
-  class ApiListaService < ApiService
+    ##
+    # Query Service Layer for data
+    # Lista service
+    #
+    #
+    class ApiListaService
 
-    @@endpoint = ServiceLayer::ApiService::LISTA_ENDPOINT
+      def initialize client_id, client_token
+        @client = Procurecarros::ServiceLayer::Client.discover("v1","lista", client_id, client_token)
+      end
 
-    def search(search_params, curr_page, num_reg = 50)
+      def search(search_params, curr_page, num_reg = 50)
 
-      method = "search"
-      params = {
-          "page" => curr_page,
-          "registros" => num_reg
-      }
-      return query(@@endpoint, method, :post, params)
+        method = @client.api.lista.search
+        params = {
+            "search_params" => search_params,
+            "page" => curr_page,
+            "registros" => num_reg
+        }
+        return @client.query(method, params)
+
+      end
 
     end
-
-
-    # def getSuperDestaque()
-    #
-    #   method = "destaque/super"
-    #   params = {
-    #       "page" => 1,
-    #       "registros" => 3
-    #   }
-    #   return query(@@endpoint, method, :get, params)
-    # end
-
   end
 end
