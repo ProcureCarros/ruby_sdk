@@ -27,3 +27,6 @@ describe Procurecarros::ServiceLayer::Client do
   end
 
 end
+
+
+@client = Procurecarros::ServiceLayer::Client.discover("v1","capa", client_id, client_token)

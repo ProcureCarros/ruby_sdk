@@ -1,6 +1,8 @@
 module Procurecarros
   module ServiceLayer
 
+    require('services/client')
+
     class ApiDetalheService
 
       # @@endpoint = ServiceLayer::ApiService::DETALHE_ENDPOINT

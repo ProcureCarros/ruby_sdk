@@ -1,6 +1,8 @@
 module Procurecarros
   module ServiceLayer
 
+    require('services/client')
+
     ##
     # Query Service Layer for data
     #
