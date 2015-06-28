@@ -8,7 +8,7 @@ gem 'rest-client'
 gem 'addressable'
 
 #Hash
-gem 'json'
+gem 'json', '~>1.8.3'
 gem 'hashie'
 
 gem 'nokogiri'
