@@ -15,7 +15,7 @@ module Procurecarros
 
       def getSuperDestaque()
 
-        method = @client.api.capa.destaque.super #"destaque/super"
+        method = @client.api.destaque.super #"destaque/super"
         params = {
             "page" => 1,
             "registros" => 3
