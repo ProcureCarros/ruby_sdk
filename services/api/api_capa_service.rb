@@ -33,7 +33,7 @@ module Procurecarros
       end
 
       def getOutrasOfertas()
-        method = @client.api.capa.destaque.outras
+        method = @client.api.destaque.outras
         params = {
             "page" => 1,
             "registros" => 8
@@ -42,7 +42,7 @@ module Procurecarros
       end
 
       def getMaisCompartilhados()
-        method = @client.api.capa.destaque.mais_compartilhadas
+        method = @client.api.destaque.mais_compartilhadas
         params = {
             "page" => 1,
             "registros" => 4
@@ -51,7 +51,7 @@ module Procurecarros
       end
 
       def getMaisBuscados()
-        method = @client.api.capa.destaque.mais_buscados
+        method = @client.api.destaque.mais_buscados
         params = {
             "page" => 1,
             "registros" => 36

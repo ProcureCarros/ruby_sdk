@@ -16,7 +16,7 @@ module Procurecarros
 
       def search(search_params, curr_page, num_reg = 50)
 
-        method = @client.api.lista.search
+        method = @client.api.search
         params = {
             "search_params" => search_params,
             "page" => curr_page,
