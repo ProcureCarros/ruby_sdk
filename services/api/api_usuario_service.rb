@@ -31,6 +31,23 @@ module Procurecarros
         return @client.query(method, params)
       end
 
+      ##
+      #
+      #
+      #
+      #
+      #
+      #
+      #
+      #
+      def register(user_data)
+        method = @client.api.register
+        params = {
+            "usuario" => user_data
+        }
+        return @client.query(method, params)
+      end
+
     end
   end
 

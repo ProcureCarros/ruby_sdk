@@ -70,7 +70,12 @@ module Procurecarros
 
       def constructRequest(endpoint, method, params)
         headers = { 'Content-Type' => "application/json" }
-        RestClient::Request.new(:url => @@client_config[:server_uri]+"endpoint/"+endpoint,
+        if method.to_s == 'get'
+          urlParams = '?'+params.map{ |k,v|  "#{k}=#{v}"}.join('&')
+        else
+          urlParams = ""
+        end
+        RestClient::Request.new(:url => @@client_config[:server_uri]+"endpoint/"+endpoint+urlParams,
                                            :headers => headers,
                                            :method => method,
                                            :params => params)
