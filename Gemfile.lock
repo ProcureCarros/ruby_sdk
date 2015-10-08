@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    procurecarros-client-ruby-sdk (0.0.1)
+    procurecarros-client-ruby-sdk (0.0.2)
 
 GEM
   remote: https://rubygems.org/
